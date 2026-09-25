@@ -37,11 +37,12 @@ export default function CalculatorInputCard({
 
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 
-            <label className="font-semibold text-slate-700">
+            <label htmlFor="loanAmount" className="font-semibold text-slate-700">
               Loan Amount
             </label>
 
             <input
+              id="loanAmount"
               type="number"
               value={loanAmount}
               min={1000}
@@ -57,6 +58,7 @@ export default function CalculatorInputCard({
 
           <input
             type="range"
+            aria-label="Loan Amount"
             min={0}
             max={50000000}
             step={50000}
@@ -80,11 +82,12 @@ export default function CalculatorInputCard({
 
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 
-            <label className="font-semibold text-slate-700">
+            <label htmlFor="interestRate" className="font-semibold text-slate-700">
               Interest Rate
             </label>
 
             <input
+              id="interestRate"
               type="number"
               value={interestRate}
               min={1}
@@ -100,6 +103,7 @@ export default function CalculatorInputCard({
 
           <input
             type="range"
+            aria-label="Interest Rate"
             min={1}
             max={20}
             step={0.5}
@@ -123,11 +127,12 @@ export default function CalculatorInputCard({
 
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 
-            <label className="font-semibold text-slate-700">
+            <label htmlFor="years" className="font-semibold text-slate-700">
               Loan Tenure (Years)
             </label>
 
             <input
+              id="years"
               type="number"
               value={years}
               min={1}
@@ -142,6 +147,7 @@ export default function CalculatorInputCard({
 
           <input
             type="range"
+            aria-label="Loan Tenure in Years"
             min={1}
             max={40}
             value={years}

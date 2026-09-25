@@ -37,11 +37,12 @@ export default function CalculatorInputCard({
 
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">
+            <label htmlFor="monthlyInvestment" className="font-semibold text-slate-700 text-sm sm:text-base">
               Monthly SIP Amount
             </label>
 
             <input
+              id="monthlyInvestment"
               type="number"
               value={monthlyInvestment}
               min={500}
@@ -56,6 +57,7 @@ export default function CalculatorInputCard({
 
           <input
             type="range"
+            aria-label="Monthly SIP Amount"
             min={500}
             max={100000}
             step={500}
@@ -79,11 +81,12 @@ export default function CalculatorInputCard({
 
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">
+            <label htmlFor="annualReturn" className="font-semibold text-slate-700 text-sm sm:text-base">
               Expected Return
             </label>
 
             <input
+              id="annualReturn"
               type="number"
               value={annualReturn}
               min={1}
@@ -99,6 +102,7 @@ export default function CalculatorInputCard({
 
           <input
             type="range"
+            aria-label="Expected Return Percent"
             min={1}
             max={20}
             step={0.5}
@@ -122,11 +126,12 @@ export default function CalculatorInputCard({
 
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">
+            <label htmlFor="sipYears" className="font-semibold text-slate-700 text-sm sm:text-base">
               Investment Period
             </label>
 
             <input
+              id="sipYears"
               type="number"
               value={years}
               min={1}
@@ -141,6 +146,7 @@ export default function CalculatorInputCard({
 
           <input
             type="range"
+            aria-label="Investment Period in Years"
             min={1}
             max={40}
             value={years}

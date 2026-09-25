@@ -43,9 +43,10 @@ export default function GoalInputCard({
         {/* Goal Name */}
         <div>
           <div className="mb-3">
-            <label className="font-semibold text-slate-700">What are you saving for?</label>
+            <label htmlFor="goalName" className="font-semibold text-slate-700">What are you saving for?</label>
           </div>
           <input
+            id="goalName"
             type="text"
             value={goalName}
             placeholder="e.g., Dream Vacation, New Car, Wedding"
@@ -57,8 +58,9 @@ export default function GoalInputCard({
         {/* Current Cost */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700">Current Cost of Goal</label>
+            <label htmlFor="currentCost" className="font-semibold text-slate-700">Current Cost of Goal</label>
             <input
+              id="currentCost"
               type="number"
               value={currentCost}
               min={10000}
@@ -70,6 +72,7 @@ export default function GoalInputCard({
           </div>
           <input
             type="range"
+            aria-label="Current Cost of Goal"
             min={10000}
             max={50000000}
             step={10000}
@@ -86,8 +89,9 @@ export default function GoalInputCard({
         {/* Years to Goal */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700">Years to Achieve Goal</label>
+            <label htmlFor="goalYears" className="font-semibold text-slate-700">Years to Achieve Goal</label>
             <input
+              id="goalYears"
               type="number"
               value={years}
               min={1}
@@ -98,6 +102,7 @@ export default function GoalInputCard({
           </div>
           <input
             type="range"
+            aria-label="Years to Achieve Goal"
             min={1}
             max={30}
             value={years}
@@ -113,8 +118,9 @@ export default function GoalInputCard({
         {/* Inflation Rate */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700">Expected Inflation (%)</label>
+            <label htmlFor="goalInflation" className="font-semibold text-slate-700">Expected Inflation (%)</label>
             <input
+              id="goalInflation"
               type="number"
               value={inflation}
               min={4}
@@ -126,6 +132,7 @@ export default function GoalInputCard({
           </div>
           <input
             type="range"
+            aria-label="Expected Inflation Percent"
             min={4}
             max={15}
             step={0.5}
@@ -142,8 +149,9 @@ export default function GoalInputCard({
         {/* Expected Return */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700">Expected Return on SIP (%)</label>
+            <label htmlFor="goalReturnRate" className="font-semibold text-slate-700">Expected Return on SIP (%)</label>
             <input
+              id="goalReturnRate"
               type="number"
               value={returnRate}
               min={8}
@@ -155,6 +163,7 @@ export default function GoalInputCard({
           </div>
           <input
             type="range"
+            aria-label="Expected Return on SIP Percent"
             min={8}
             max={20}
             step={0.5}

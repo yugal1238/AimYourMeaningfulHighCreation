@@ -42,8 +42,9 @@ export default function RetirementInputCard({
         {/* Current Age */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Current Age</label>
+            <label htmlFor="ret-currentAge" className="font-semibold text-slate-700 text-sm sm:text-base">Current Age</label>
             <input
+              id="ret-currentAge"
               type="number"
               value={currentAge}
               min={18}
@@ -54,6 +55,7 @@ export default function RetirementInputCard({
           </div>
           <input
             type="range"
+            aria-label="Current Age"
             min={18}
             max={65}
             value={currentAge}
@@ -65,8 +67,9 @@ export default function RetirementInputCard({
         {/* Retirement Age */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Target Retirement Age</label>
+            <label htmlFor="ret-retirementAge" className="font-semibold text-slate-700 text-sm sm:text-base">Target Retirement Age</label>
             <input
+              id="ret-retirementAge"
               type="number"
               value={retirementAge}
               min={40}
@@ -77,6 +80,7 @@ export default function RetirementInputCard({
           </div>
           <input
             type="range"
+            aria-label="Target Retirement Age"
             min={40}
             max={75}
             value={retirementAge}
@@ -92,8 +96,9 @@ export default function RetirementInputCard({
         {/* Current Monthly Expenses */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Current Monthly Expenses</label>
+            <label htmlFor="ret-monthlyExpenses" className="font-semibold text-slate-700 text-sm sm:text-base">Current Monthly Expenses</label>
             <input
+              id="ret-monthlyExpenses"
               type="number"
               value={monthlyExpenses}
               min={10000}
@@ -105,6 +110,7 @@ export default function RetirementInputCard({
           </div>
           <input
             type="range"
+            aria-label="Current Monthly Expenses"
             min={10000}
             max={1000000}
             step={5000}
@@ -117,8 +123,9 @@ export default function RetirementInputCard({
         {/* Inflation Rate */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Expected Inflation (%)</label>
+            <label htmlFor="ret-inflation" className="font-semibold text-slate-700 text-sm sm:text-base">Expected Inflation (%)</label>
             <input
+              id="ret-inflation"
               type="number"
               value={inflation}
               min={4}
@@ -130,6 +137,7 @@ export default function RetirementInputCard({
           </div>
           <input
             type="range"
+            aria-label="Expected Inflation Percent"
             min={4}
             max={15}
             step={0.5}
@@ -142,8 +150,9 @@ export default function RetirementInputCard({
         {/* Expected Return */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Expected Return (%)</label>
+            <label htmlFor="ret-returnRate" className="font-semibold text-slate-700 text-sm sm:text-base">Expected Return (%)</label>
             <input
+              id="ret-returnRate"
               type="number"
               value={returnRate}
               min={8}
@@ -155,6 +164,7 @@ export default function RetirementInputCard({
           </div>
           <input
             type="range"
+            aria-label="Expected Return Percent"
             min={8}
             max={20}
             step={0.5}

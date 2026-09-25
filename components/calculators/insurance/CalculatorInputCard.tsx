@@ -48,8 +48,9 @@ export default function InsuranceInputCard({
         {/* Current Age */}
         <div>
           <div className="mb-3 flex flex-col gap-2 xs:flex-row xs:items-center xs:justify-between sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Current Age</label>
+            <label htmlFor="currentAge" className="font-semibold text-slate-700 text-sm sm:text-base">Current Age</label>
             <input
+              id="currentAge"
               type="number"
               value={currentAge}
               min={18}
@@ -60,6 +61,7 @@ export default function InsuranceInputCard({
           </div>
           <input
             type="range"
+            aria-label="Current Age"
             min={18}
             max={65}
             value={currentAge}
@@ -71,8 +73,9 @@ export default function InsuranceInputCard({
         {/* Retirement Age */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Retirement Age</label>
+            <label htmlFor="retirementAge" className="font-semibold text-slate-700 text-sm sm:text-base">Retirement Age</label>
             <input
+              id="retirementAge"
               type="number"
               value={retirementAge}
               min={40}
@@ -83,6 +86,7 @@ export default function InsuranceInputCard({
           </div>
           <input
             type="range"
+            aria-label="Retirement Age"
             min={40}
             max={75}
             value={retirementAge}
@@ -94,8 +98,9 @@ export default function InsuranceInputCard({
         {/* Monthly Expenses */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Monthly Family Expenses</label>
+            <label htmlFor="monthlyExpenses" className="font-semibold text-slate-700 text-sm sm:text-base">Monthly Family Expenses</label>
             <input
+              id="monthlyExpenses"
               type="number"
               value={monthlyExpenses}
               min={10000}
@@ -106,6 +111,7 @@ export default function InsuranceInputCard({
           </div>
           <input
             type="range"
+            aria-label="Monthly Family Expenses"
             min={10000}
             max={500000}
             step={5000}
@@ -118,8 +124,9 @@ export default function InsuranceInputCard({
         {/* Outstanding Loans */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Outstanding Loans (Home, Car, etc.)</label>
+            <label htmlFor="outstandingLoans" className="font-semibold text-slate-700 text-sm sm:text-base">Outstanding Loans (Home, Car, etc.)</label>
             <input
+              id="outstandingLoans"
               type="number"
               value={outstandingLoans}
               min={0}
@@ -130,6 +137,7 @@ export default function InsuranceInputCard({
           </div>
           <input
             type="range"
+            aria-label="Outstanding Loans"
             min={0}
             max={20000000}
             step={100000}
@@ -142,8 +150,9 @@ export default function InsuranceInputCard({
         {/* Existing Savings */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Existing Savings & Investments</label>
+            <label htmlFor="existingSavings" className="font-semibold text-slate-700 text-sm sm:text-base">Existing Savings & Investments</label>
             <input
+              id="existingSavings"
               type="number"
               value={existingSavings}
               min={0}
@@ -154,6 +163,7 @@ export default function InsuranceInputCard({
           </div>
           <input
             type="range"
+            aria-label="Existing Savings and Investments"
             min={0}
             max={50000000}
             step={100000}
@@ -166,8 +176,9 @@ export default function InsuranceInputCard({
         {/* Existing Life Cover */}
         <div>
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <label className="font-semibold text-slate-700 text-sm sm:text-base">Existing Life Insurance Cover</label>
+            <label htmlFor="existingCover" className="font-semibold text-slate-700 text-sm sm:text-base">Existing Life Insurance Cover</label>
             <input
+              id="existingCover"
               type="number"
               value={existingCover}
               min={0}
@@ -178,6 +189,7 @@ export default function InsuranceInputCard({
           </div>
           <input
             type="range"
+            aria-label="Existing Life Insurance Cover"
             min={0}
             max={50000000}
             step={500000}
