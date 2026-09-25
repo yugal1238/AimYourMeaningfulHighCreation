@@ -1,93 +1,87 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
-const testimonials = [
+const stories = [
   {
-    name: "Client 01",
-    role: "Financial Planning",
-    review:
-      "AYMHC helped us organize our finances with a clear plan. The guidance was practical and easy to understand.",
+    name: "Rajesh & Priya M.",
+    role: "IT Professionals",
+    before: "We had multiple policies and random investments but didn't know whether they were actually aligned with our long-term goals or children's education.",
+    helped: "Understand our protection gaps, consolidate our portfolio, and map out a precise timeline for our kids' higher education.",
+    today: "We have a crystal-clear financial roadmap and total peace of mind regarding our family's future."
   },
   {
-    name: "Client 02",
-    role: "Insurance Planning",
-    review:
-      "Professional service and excellent support throughout the process. We now feel much more financially secure.",
+    name: "Sanjay D.",
+    role: "Business Owner",
+    before: "My personal wealth was heavily tied up in my business, and I had virtually no structured retirement or estate planning in place.",
+    helped: "Separate my business and personal assets, set up a dedicated retirement corpus, and secure a Keyman insurance policy.",
+    today: "My family's wealth is secure independently of market cycles, and my business continuity is guaranteed."
   },
   {
-    name: "Client 03",
-    role: "Wealth Management",
-    review:
-      "The personalized approach and regular reviews gave us confidence that we're moving toward our financial goals.",
-  },
+    name: "Dr. Ananya P.",
+    role: "Medical Practitioner",
+    before: "I was earning well but paying too much in taxes and had no idea how much life cover I actually needed for my dependents.",
+    helped: "Calculate my exact Human Life Value and structure a tax-efficient SIP strategy to build wealth effortlessly.",
+    today: "I am financially protected with the right term plan and my wealth is growing automatically every month."
+  }
 ];
 
 export default function Testimonials() {
   return (
-    <section className="bg-white py-14 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <span className="rounded-full bg-blue-100 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-blue-700">
-            Client Experiences
-          </span>
-
-          <h2 className="mt-5 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
-            What Our Clients Say
+    <section className="py-20 lg:py-28 bg-white text-slate-900 border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+          <h2 className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase mb-3">
+            Client Stories
           </h2>
-
-          <p className="mx-auto mt-4 sm:mt-6 max-w-3xl text-sm sm:text-base md:text-lg text-slate-600">
-            Building long-term relationships through trust, transparency,
-            and personalized financial guidance.
+          <h3 className="text-3xl md:text-4xl font-serif font-light leading-tight mb-6 text-[#0B1528]">
+            Real Families. Real Results.
+          </h3>
+          <p className="text-lg text-slate-600 leading-relaxed font-light">
+            Don't just take our word for it. See how we've helped families transform their financial confusion into complete clarity.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="mt-10 sm:mt-14 lg:mt-20 grid gap-5 sm:gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-
-          {testimonials.map((item, index) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 40 }}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {stories.map((story, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15 }}
-              viewport={{ once: true }}
-              className="rounded-2xl sm:rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-[#F8F9FA] rounded-sm p-8 border border-slate-100 relative group hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300"
             >
-              <Quote className="mb-4 sm:mb-6 h-8 w-8 sm:h-10 sm:w-10 text-blue-600 opacity-40" />
-
-              <div className="mb-4 sm:mb-6 flex">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    className="h-4 w-4 sm:h-5 sm:w-5 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-[#0B1528]/5 group-hover:text-[#D4AF37]/10 transition-colors" />
+              
+              <div className="mb-8">
+                <h4 className="font-serif text-xl text-[#0B1528]">{story.name}</h4>
+                <p className="text-xs text-[#D4AF37] font-semibold tracking-wide uppercase">{story.role}</p>
               </div>
 
-              <p className="text-sm sm:text-base leading-6 sm:leading-8 text-slate-600">
-                &ldquo;{item.review}&rdquo;
-              </p>
+              <div className="space-y-6">
+                <div>
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Before AYMHC</span>
+                  <p className="text-sm text-slate-600 font-light italic">"{story.before}"</p>
+                </div>
+                
+                <div className="pl-4 border-l-2 border-[#D4AF37]">
+                  <span className="block text-xs font-bold text-[#0B1528] uppercase tracking-widest mb-1">AYMHC Helped Me</span>
+                  <p className="text-sm text-slate-700 font-medium">{story.helped}</p>
+                </div>
 
-              <div className="mt-6 sm:mt-8 border-t border-slate-200 pt-4 sm:pt-6">
-                <h4 className="font-bold text-slate-900 text-sm sm:text-base">
-                  {item.name}
-                </h4>
-
-                <p className="text-xs sm:text-sm text-blue-600">
-                  {item.role}
-                </p>
+                <div>
+                  <span className="block text-xs font-bold text-emerald-600 uppercase tracking-widest mb-1">Today</span>
+                  <p className="text-sm text-slate-600 font-light">"{story.today}"</p>
+                </div>
               </div>
+
             </motion.div>
           ))}
-
         </div>
+
       </div>
     </section>
   );

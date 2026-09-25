@@ -1,152 +1,112 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ShieldCheck, TrendingUp, Target, Landmark, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import {
-  ArrowRight,
-  HeartPulse,
-  Landmark,
-  GraduationCap,
-  ShieldCheck,
-  TrendingUp,
-  Wallet,
-  Droplets,
-} from "lucide-react";
 
-const services = [
+const solutions = [
   {
-    title: "Wealth Management",
-    description:
-      "Personalized investment strategies, mutual funds, and long-term wealth creation.",
-    icon: TrendingUp,
-    size: "lg:col-span-2",
-    color: "from-blue-600 to-cyan-500",
-  },
-  {
-    title: "Insurance Planning",
-    description:
-      "Life, Health, Mediclaim, Term Insurance and comprehensive family protection.",
+    title: "Protection",
     icon: ShieldCheck,
-    size: "",
-    color: "from-indigo-600 to-blue-500",
+    items: [
+      "Life Insurance",
+      "Health Insurance",
+      "General Insurance",
+      "Keyman / Business Protection"
+    ],
+    href: "/services/protection"
   },
   {
-    title: "Retirement Planning",
-    description:
-      "Plan today for a financially independent tomorrow with customized retirement solutions.",
+    title: "Investment",
+    icon: TrendingUp,
+    items: [
+      "Mutual Funds",
+      "SIP / SWP",
+      "NPS",
+      "Bonds / Fixed Income"
+    ],
+    href: "/services/investment"
+  },
+  {
+    title: "Goal Planning",
+    icon: Target,
+    items: [
+      "Child Education",
+      "Retirement",
+      "Wealth Creation",
+      "Estate / Family Protection"
+    ],
+    href: "/services/goal-planning"
+  },
+  {
+    title: "Financial Solutions",
     icon: Landmark,
-    size: "",
-    color: "from-slate-800 to-slate-600",
-  },
-  {
-    title: "Child Education Planning",
-    description:
-      "Create dedicated investment plans for higher education and future milestones.",
-    icon: GraduationCap,
-    size: "lg:col-span-2",
-    color: "from-sky-600 to-blue-500",
-  },
-  {
-    title: "Tax Planning",
-    description:
-      "Reduce tax liability while maximizing savings with strategic financial planning.",
-    icon: Wallet,
-    size: "",
-    color: "from-green-600 to-emerald-500",
-  },
-  {
-    title: "Loan Advisory",
-    description:
-      "Guidance for home, business, personal and mortgage loan solutions.",
-    icon: HeartPulse,
-    size: "",
-    color: "from-orange-500 to-amber-500",
-  },
-  {
-    title: "Kangen Wellness",
-    description:
-      "Premium Japanese water technology to support a healthier lifestyle.",
-    icon: Droplets,
-    size: "lg:col-span-3",
-    color: "from-cyan-600 to-sky-500",
-  },
+    items: [
+      "Home / Mortgage Loans",
+      "Business Funding",
+      "Working Capital",
+      "Other Loan Solutions"
+    ],
+    href: "/services/financial-solutions"
+  }
 ];
 
 export default function Services() {
   return (
-    <section className="bg-slate-50 py-14 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <span className="rounded-full bg-blue-100 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-blue-700">
-            What We Do
-          </span>
-
-          <h2 className="mt-5 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
-            Comprehensive Financial Solutions
+    <section className="py-20 lg:py-28 bg-[#F8F9FA] text-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+          <h2 className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase mb-3">
+            Our Solutions
           </h2>
-
-          <p className="mx-auto mt-4 sm:mt-6 max-w-3xl text-sm sm:text-base md:text-lg text-slate-600">
-            Every financial journey is different. We combine expertise,
-            planning and ongoing guidance to help you protect your family,
-            grow your wealth and achieve long-term financial confidence.
+          <h3 className="text-3xl md:text-4xl font-serif font-light leading-tight mb-6 text-[#0B1528]">
+            Comprehensive Financial Strategies
+          </h3>
+          <p className="text-lg text-slate-600 leading-relaxed font-light">
+            From protecting what you have today to building what you need tomorrow, we offer a full spectrum of tailored solutions.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="mt-10 sm:mt-14 lg:mt-20 grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-
-          {services.map((service, index) => {
-            const Icon = service.icon;
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {solutions.map((category, index) => {
+            const Icon = category.icon;
             return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 40 }}
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className={`${service.size}`}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-sm border border-slate-100 shadow-sm hover:shadow-xl hover:border-[#D4AF37]/30 transition-all duration-300 p-8 group flex flex-col h-full"
               >
-                <div className="group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-
-                  {/* Gradient Glow */}
-                  <div
-                    className={`absolute right-0 top-0 h-24 w-24 sm:h-32 sm:w-32 rounded-full bg-gradient-to-br ${service.color} opacity-10 blur-3xl transition-opacity group-hover:opacity-30`}
-                  />
-
-                  <div
-                    className={`inline-flex rounded-2xl bg-gradient-to-r ${service.color} p-3 sm:p-4 text-white shadow-lg`}
-                  >
-                    <Icon size={26} className="sm:hidden" />
-                    <Icon size={30} className="hidden sm:block" />
-                  </div>
-
-                  <h3 className="mt-6 sm:mt-8 text-xl sm:text-2xl font-bold text-slate-900">
-                    {service.title}
-                  </h3>
-
-                  <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-6 sm:leading-8 text-slate-600">
-                    {service.description}
-                  </p>
-
-                  <Link
-                    href="/contact"
-                    className="mt-6 sm:mt-8 inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-blue-600 transition group-hover:gap-4"
-                  >
-                    Talk to an Advisor
-                    <ArrowRight size={18} />
-                  </Link>
-
+                <div className="w-14 h-14 rounded-full bg-[#0B1528]/5 flex items-center justify-center mb-6 group-hover:bg-[#0B1528] transition-colors duration-300">
+                  <Icon className="w-7 h-7 text-[#0B1528] group-hover:text-[#D4AF37] transition-colors duration-300" />
                 </div>
+                
+                <h4 className="text-2xl font-serif text-[#0B1528] mb-6">
+                  {category.title}
+                </h4>
+                
+                <ul className="space-y-4 mb-8 flex-grow">
+                  {category.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] mt-2 shrink-0" />
+                      <span className="text-slate-600 font-light">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link 
+                  href={category.href}
+                  className="inline-flex items-center gap-2 text-sm font-bold tracking-wide text-[#0B1528] group-hover:text-[#D4AF37] transition-colors mt-auto"
+                >
+                  Explore Details
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </motion.div>
             );
           })}
-
         </div>
 
       </div>

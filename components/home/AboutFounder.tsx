@@ -1,164 +1,88 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle2, Award, HeartHandshake } from "lucide-react";
-import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutFounder() {
   return (
-    <section className="py-14 sm:py-20 lg:py-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="py-20 lg:py-28 bg-[#0B1528] text-white relative overflow-hidden">
+      {/* Decorative Gold Accents */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B1528] via-[#D4AF37] to-[#0B1528]" />
+      
+      {/* Background Subtle Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+        style={{ backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '32px 32px' }}
+      />
 
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
+          <h2 className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase mb-3">
+            Meet Your Advisors
+          </h2>
+          <h3 className="text-3xl md:text-5xl font-serif font-light leading-tight mb-6">
+            Guidance Built on Trust
+          </h3>
+          <div className="relative inline-block mt-4">
+            <span className="absolute -left-6 -top-4 text-5xl text-[#D4AF37]/30 font-serif">"</span>
+            <p className="text-xl md:text-2xl text-slate-300 font-light italic leading-relaxed px-4">
+              Every family has different dreams, responsibilities and financial challenges. Our role is to understand yours and help you create a plan around them.
+            </p>
+            <span className="absolute -right-6 -bottom-8 text-5xl text-[#D4AF37]/30 font-serif">"</span>
+          </div>
+        </div>
 
-          {/* IMAGE */}
-
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          {/* Founders Images Container */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: .7 }}
+            transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="rounded-[24px] sm:rounded-[36px] overflow-hidden shadow-2xl">
-
+            <div className="aspect-[4/5] rounded-sm overflow-hidden border border-slate-800 relative z-10">
+              <div className="absolute inset-0 bg-[#0B1528]/10 mix-blend-overlay z-10 pointer-events-none" />
               <Image
-                src="/hero-chhaya.jpg"
-                alt="Chhaya Harshad Bhimjiyani"
-                width={700}
-                height={800}
-                className="w-full object-cover"
+                src="/hero-chhaya.JPG" // Replace with a dual photo of Chhaya and Harshad
+                alt="Chhaya and Harshad Bhimjiyani"
+                fill
+                className="object-cover grayscale-[20%]"
               />
-
             </div>
-
-            <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 rounded-xl sm:rounded-2xl bg-white p-3 sm:p-5 shadow-xl">
-
-              <p className="text-2xl sm:text-4xl font-bold text-blue-600">
-                20+
-              </p>
-
-              <p className="text-xs sm:text-base text-slate-600">
-                Years Experience
-              </p>
-
-            </div>
-
+            {/* Backdrop accent */}
+            <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-[#D4AF37]/30 rounded-sm z-0" />
           </motion.div>
 
-          {/* CONTENT */}
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
+          {/* Founders Bios */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: .7 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-12"
           >
-
-            <span className="rounded-full bg-blue-100 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-blue-700">
-              Meet Your Financial Partner
-            </span>
-
-            <h2 className="mt-5 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
-              Chhaya Harshad Bhimjiyani
-            </h2>
-
-            <p className="mt-2 text-base sm:text-xl font-semibold text-blue-600">
-              Founder • AYMHC
-            </p>
-
-            <p className="mt-6 sm:mt-8 text-sm sm:text-base md:text-lg leading-7 sm:leading-9 text-slate-600">
-
-              At AYMHC, we believe financial planning is about people,
-              not products.
-
-              Every family has different dreams, responsibilities,
-              and financial goals.
-
-              Our mission is to help you make confident financial
-              decisions through personalized guidance, long-term
-              planning and complete financial solutions.
-
-            </p>
-
-            <div className="mt-8 sm:mt-10 space-y-4 sm:space-y-5">
-
-              <div className="flex items-start gap-3 sm:gap-4">
-
-                <Award className="text-blue-600 mt-1 shrink-0" size={20} />
-
-                <div>
-
-                  <h4 className="font-semibold text-base sm:text-lg">
-                    Experience Since 2006
-                  </h4>
-
-                  <p className="text-sm sm:text-base text-slate-600">
-                    More than two decades of helping families build
-                    financial security.
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="flex items-start gap-3 sm:gap-4">
-
-                <CheckCircle2 className="text-blue-600 mt-1 shrink-0" size={20} />
-
-                <div>
-
-                  <h4 className="font-semibold text-base sm:text-lg">
-                    Comprehensive Financial Solutions
-                  </h4>
-
-                  <p className="text-sm sm:text-base text-slate-600">
-                    Insurance, investments, retirement planning,
-                    loans and wealth management.
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="flex items-start gap-3 sm:gap-4">
-
-                <HeartHandshake className="text-blue-600 mt-1 shrink-0" size={20} />
-
-                <div>
-
-                  <h4 className="font-semibold text-base sm:text-lg">
-                    Relationships Built on Trust
-                  </h4>
-
-                  <p className="text-sm sm:text-base text-slate-600">
-                    Every recommendation is made with transparency,
-                    integrity and your family&apos;s future in mind.
-                  </p>
-
-                </div>
-
-              </div>
-
+            
+            <div className="border-l-2 border-[#D4AF37] pl-6">
+              <h4 className="text-3xl font-serif mb-2">Chhaya Harshad Bhimjiyani</h4>
+              <p className="text-[#D4AF37] font-semibold tracking-wide uppercase text-sm mb-4">
+                Financial Planning & Investment Consultant
+              </p>
+              <p className="text-slate-400 font-light leading-relaxed">
+                With a deep focus on holistic wealth creation, Chhaya specializes in designing bespoke financial roadmaps that align with your family's unique aspirations, leveraging mutual funds, SIPs, and strategic goal planning.
+              </p>
             </div>
 
-            <div className="mt-8 sm:mt-10 flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-5">
-
-              <Link
-                href="/contact"
-                className="text-center rounded-full bg-blue-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white hover:bg-blue-700 transition"
-              >
-                Book Consultation
-              </Link>
-
-              <Link
-                href="/about"
-                className="text-center rounded-full border border-slate-300 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold hover:border-blue-600 hover:text-blue-600 transition"
-              >
-                Read My Story
-              </Link>
-
+            <div className="border-l-2 border-[#D4AF37] pl-6">
+              <h4 className="text-3xl font-serif mb-2">Harshad Bhimjiyani</h4>
+              <p className="text-[#D4AF37] font-semibold tracking-wide uppercase text-sm mb-4">
+                LIC Life Insurance Advisor
+              </p>
+              <p className="text-slate-400 font-light leading-relaxed">
+                Bringing over two decades of robust experience in life and general insurance, Harshad ensures that your wealth generation is backed by an impenetrable wall of family protection and legacy planning.
+              </p>
             </div>
 
           </motion.div>

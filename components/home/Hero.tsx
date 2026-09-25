@@ -3,152 +3,114 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  ShieldCheck,
-  TrendingUp,
-  HeartHandshake,
-} from "lucide-react";
+import { ArrowRight, Shield, TrendingUp, HandCoins, Landmark } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
-      {/* Background Blur */}
-      <div className="absolute -left-32 top-0 h-72 w-72 sm:h-96 sm:w-96 rounded-full bg-blue-100 blur-3xl opacity-70" />
-      <div className="absolute right-0 top-32 h-72 w-72 sm:h-96 sm:w-96 rounded-full bg-sky-100 blur-3xl opacity-70" />
+    <section className="relative bg-[#0B1528] overflow-hidden text-white">
+      {/* Decorative Gold Accents */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B1528] via-[#D4AF37] to-[#0B1528]" />
+      
+      {/* Background Subtle Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+        style={{ backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '32px 32px' }}
+      />
+      
+      {/* Glows */}
+      <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 sm:gap-12 lg:gap-14 px-4 sm:px-6 py-14 sm:py-20 lg:py-24 lg:grid-cols-2">
-
-        {/* LEFT */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: .8 }}
-        >
-
-          <span className="inline-flex rounded-full bg-blue-100 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-blue-700 tracking-wide">
-            Since 2006 • Trusted Financial Guidance
-          </span>
-
-          <h1 className="mt-5 sm:mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-slate-900 lg:text-6xl">
-            Protect Today.
-            <br />
-            Grow Tomorrow.
-            <br />
-            <span className="text-blue-600">
-              Prosper Forever.
-            </span>
-          </h1>
-
-          <p className="mt-5 sm:mt-6 max-w-xl text-base sm:text-lg leading-7 sm:leading-8 text-slate-600">
-            AYMHC helps families build wealth, secure their future,
-            and achieve financial confidence through insurance,
-            investments, retirement planning, and comprehensive
-            financial strategies.
-          </p>
-
-          <p className="mt-5 sm:mt-6 text-base sm:text-lg italic font-medium text-blue-700">
-            &ldquo;Vichar Tamaro, Aakar Amaro&rdquo;
-          </p>
-
-          <div className="mt-8 sm:mt-10 flex flex-col xs:flex-row sm:flex-row flex-wrap gap-3 sm:gap-4">
-
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-md transition hover:bg-blue-700 hover:shadow-lg"
-            >
-              Book Free Consultation
-              <ArrowRight size={18} />
-            </Link>
-
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
-            >
-              Explore Services
-            </Link>
-
-          </div>
-
-          {/* Trust Cards */}
-
-          <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-3">
-
-            <div className="rounded-2xl border bg-white p-4 sm:p-5 shadow-sm">
-              <ShieldCheck className="mb-2 sm:mb-3 text-blue-600" size={22} />
-              <h3 className="text-sm sm:text-base font-semibold">
-                Family Protection
-              </h3>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-6 xl:col-span-5 pt-8"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#D4AF37] text-xs uppercase tracking-widest font-semibold mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+              Boutique Family Wealth & Protection Advisory
             </div>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-light leading-[1.1] tracking-tight mb-6 font-serif">
+              Protect.<br />
+              Plan.<br />
+              <span className="font-semibold text-[#D4AF37]">Prosper.</span>
+            </h1>
 
-            <div className="rounded-2xl border bg-white p-4 sm:p-5 shadow-sm">
-              <TrendingUp className="mb-2 sm:mb-3 text-blue-600" size={22} />
-              <h3 className="text-sm sm:text-base font-semibold">
-                Wealth Creation
-              </h3>
+            <p className="text-xl sm:text-2xl text-slate-300 font-light mb-4">
+              <span className="italic">"Vichaar Tamaro, Aakar Amaro"</span>
+              <br/>— Your Thought. Our Shape.
+            </p>
+            
+            <p className="text-base sm:text-lg text-slate-400 mb-10 leading-relaxed max-w-lg">
+              Protect today. Plan tomorrow. Build your family's financial future. 
+              We don't just sell products; we help you create a practical financial roadmap.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                href="/contact"
+                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D4AF37] text-[#0B1528] font-bold tracking-wide rounded-sm transition-all hover:bg-white shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+              >
+                Book a FREE Health Check
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link 
+                href="/about"
+                className="inline-flex items-center justify-center px-8 py-4 border border-slate-600 text-white font-medium tracking-wide rounded-sm transition-all hover:border-white hover:bg-white/5"
+              >
+                Talk to an Advisor
+              </Link>
             </div>
-
-            <div className="rounded-2xl border bg-white p-4 sm:p-5 shadow-sm">
-              <HeartHandshake className="mb-2 sm:mb-3 text-blue-600" size={22} />
-              <h3 className="text-sm sm:text-base font-semibold">
-                Lifetime Guidance
-              </h3>
+            
+            {/* Trust Strip */}
+            <div className="mt-10 pt-8 border-t border-slate-800/80 flex flex-wrap gap-x-8 gap-y-4 text-sm text-slate-400 font-medium">
+              <span className="flex items-center gap-2">
+                <span className="text-[#D4AF37] font-bold">20+</span> Years Experience
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="text-[#D4AF37] font-bold">2,000+</span> Families Served
+              </span>
+              <span>Financial Planning • Insurance • Investments • Loans</span>
             </div>
+          </motion.div>
 
-          </div>
+          {/* Right Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="lg:col-span-6 xl:col-span-7 relative mt-10 lg:mt-0"
+          >
+            <div className="relative rounded-sm overflow-hidden border border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full h-[500px] sm:h-[600px] lg:h-[750px]">
+              <div className="absolute inset-0 bg-[#0B1528]/10 mix-blend-overlay z-10 pointer-events-none" />
+              {/* Replace with actual high-quality photo of founders */}
+              <Image
+                src="/hero-chhaya.JPG"
+                alt="Chhaya and Harshad Bhimjiyani - AYMHC Founders"
+                fill
+                className="object-cover object-top grayscale-[15%] hover:grayscale-0 transition-all duration-700"
+                priority
+              />
+            </div>
+            
+            {/* Floating Accent Card */}
+            <div className="absolute -bottom-6 -left-4 sm:-left-10 bg-white p-5 sm:p-8 shadow-2xl rounded-sm max-w-[280px] sm:max-w-sm border-l-4 border-[#D4AF37] z-20">
+              <p className="text-slate-900 font-serif text-base sm:text-lg leading-snug">
+                "Every family has different dreams. Our role is to understand yours."
+              </p>
+              <p className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider mt-3">
+                — Founders, AYMHC
+              </p>
+            </div>
+          </motion.div>
 
-        </motion.div>
-
-        {/* RIGHT */}
-
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="relative mt-6 lg:mt-0"
-        >
-
-          <div className="overflow-hidden rounded-[28px] sm:rounded-[40px] border bg-white p-3 sm:p-5 shadow-2xl">
-
-            <Image
-              src="/hero-chhaya.JPG"
-              alt="AYMHC Financial Consultant"
-              width={700}
-              height={800}
-              className="w-full rounded-[20px] sm:rounded-[30px] object-cover"
-              priority
-            />
-
-          </div>
-
-          {/* Floating Card */}
-
-          <div className="absolute -left-3 top-4 sm:-left-8 sm:top-8 rounded-xl sm:rounded-2xl bg-white p-3 sm:p-5 shadow-xl">
-
-            <p className="text-xl sm:text-3xl font-bold text-blue-600">
-              20+
-            </p>
-
-            <p className="text-xs sm:text-sm text-slate-600">
-              Years Experience
-            </p>
-
-          </div>
-
-          <div className="absolute -right-2 bottom-6 sm:-right-6 sm:bottom-12 rounded-xl sm:rounded-2xl bg-white p-3 sm:p-5 shadow-xl">
-
-            <p className="text-xl sm:text-3xl font-bold text-blue-600">
-              1000+
-            </p>
-
-            <p className="text-xs sm:text-sm text-slate-600">
-              Families Guided
-            </p>
-
-          </div>
-
-        </motion.div>
-
+        </div>
       </div>
     </section>
   );

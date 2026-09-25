@@ -1,13 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import {
   PiggyBank,
   Landmark,
   Calculator,
-  GraduationCap,
   Target,
   ShieldCheck,
   ArrowRight,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const calculators = [
   {
@@ -15,113 +17,120 @@ const calculators = [
     description: "Estimate the future value of your monthly SIP investments.",
     icon: PiggyBank,
     href: "/calculators/sip",
-    color: "bg-blue-100 text-blue-700",
   },
   {
     title: "EMI Calculator",
     description: "Calculate monthly EMI for home, car or personal loans.",
     icon: Calculator,
     href: "/calculators/emi",
-    color: "bg-green-100 text-green-700",
   },
   {
     title: "Retirement Planner",
     description: "Know how much wealth you'll need after retirement.",
     icon: Landmark,
     href: "/calculators/retirement",
-    color: "bg-orange-100 text-orange-700",
   },
   {
     title: "Goal Planner",
     description: "Plan for future financial goals with confidence.",
     icon: Target,
     href: "/calculators/goal-planner",
-    color: "bg-pink-100 text-pink-700",
   },
   {
     title: "Insurance Calculator",
     description: "Estimate your ideal life cover based on your family's needs.",
     icon: ShieldCheck,
     href: "/calculators/insurance",
-    color: "bg-teal-100 text-teal-700",
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 export default function CalculatorsPage() {
   return (
-    <main className="bg-slate-50 min-h-screen">
-
-      <section className="bg-gradient-to-r from-blue-700 to-slate-900 py-10 sm:py-14 md:py-20 text-white">
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-            Financial Calculators
+    <main className="min-h-screen bg-[#F8F9FA]">
+      
+      {/* Hero Section */}
+      <section className="bg-[#0B1528] py-20 lg:py-28 text-white relative overflow-hidden">
+        {/* Decorative Gold Accents */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B1528] via-[#D4AF37] to-[#0B1528]" />
+        
+        {/* Background Subtle Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+          style={{ backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '32px 32px' }}
+        />
+        
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center"
+        >
+          <h2 className="text-[#D4AF37] text-sm font-semibold tracking-widest uppercase mb-3">
+            Financial Tools
+          </h2>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light leading-tight font-serif mb-6">
+            Understand Your Wealth
           </h1>
-
-          <p className="mt-3 sm:mt-4 md:mt-6 max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl text-blue-100">
-            Smart tools to help you make better financial decisions.
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-300 font-light">
+            Use our interactive calculators to map out your financial future, estimate required investments, and identify protection gaps.
           </p>
-
-        </div>
-
+        </motion.div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-14 md:py-20">
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
-
+      {/* Grid Section */}
+      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {calculators.map((item) => {
-
             const Icon = item.icon;
-
             return (
+              <motion.div key={item.title} variants={itemVariants}>
+                <Link
+                  href={item.href}
+                  className="block bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-[#D4AF37]/30 h-full group relative overflow-hidden"
+                >
+                  {/* Subtle Hover Accent */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              <Link
-                key={item.title}
-                href={item.href}
-                className="rounded-2xl sm:rounded-3xl bg-white p-5 sm:p-6 md:p-8 shadow hover:shadow-xl transition hover:-translate-y-2 border"
-              >
+                  <div className="w-14 h-14 rounded-full bg-[#0B1528]/5 flex items-center justify-center mb-6 group-hover:bg-[#0B1528] transition-colors duration-300">
+                    <Icon className="w-7 h-7 text-[#0B1528] group-hover:text-[#D4AF37] transition-colors duration-300" />
+                  </div>
 
-                <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center ${item.color}`}>
+                  <h2 className="text-2xl font-serif text-[#0B1528] mb-3 group-hover:text-[#D4AF37] transition-colors">
+                    {item.title}
+                  </h2>
 
-                  <Icon size={28} className="sm:hidden" />
-                  <Icon size={30} className="hidden sm:block md:hidden" />
-                  <Icon size={34} className="hidden md:block" />
+                  <p className="text-sm text-slate-600 font-light leading-relaxed mb-8">
+                    {item.description}
+                  </p>
 
-                </div>
-
-                <h2 className="mt-4 sm:mt-5 md:mt-6 text-lg sm:text-xl md:text-2xl font-bold">
-
-                  {item.title}
-
-                </h2>
-
-                <p className="mt-2 sm:mt-3 md:mt-4 text-sm sm:text-base text-slate-600">
-
-                  {item.description}
-
-                </p>
-
-                <div className="mt-5 sm:mt-6 md:mt-8 flex items-center gap-2 text-blue-600 font-semibold text-sm sm:text-base">
-
-                  Open Calculator
-
-                  <ArrowRight size={16} className="sm:hidden" />
-                  <ArrowRight size={18} className="hidden sm:block" />
-
-                </div>
-
-              </Link>
-
+                  <div className="flex items-center gap-2 text-[#0B1528] font-bold text-sm tracking-wide group-hover:text-[#D4AF37] transition-colors mt-auto">
+                    Open Calculator
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
             );
-
           })}
-
-        </div>
-
+        </motion.div>
       </section>
-
     </main>
   );
 }

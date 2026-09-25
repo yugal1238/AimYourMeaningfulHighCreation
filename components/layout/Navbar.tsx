@@ -1,143 +1,132 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-
-const navItems = [
-  { name: "Home", href: "/" },
+const links = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Portfolio Review", href: "/portfolio-review" },
+  { name: "Financial Planning", href: "/financial-planning" },
   { name: "Calculators", href: "/calculators" },
+  { name: "Achievements", href: "/achievements" },
+  { name: "Resources", href: "/resources" },
   { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 15);
+      setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-lg shadow-md"
-          : "bg-white"
-      }`}
+    <header 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-[#0B1528]/95 backdrop-blur-md shadow-md py-3" : "bg-[#0B1528] py-5"
+      } border-b border-white/5`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-
-        {/* Logo */}
-
-        <Link href="/" className="flex items-center gap-3">
-
-          <Image
-  src="/logo.jpg"
-  alt="AYMHC Logo"
-  width={55}
-  height={55}
-  className="rounded-xl object-cover"
-/>
-
-          <div>
-            <h2 className="text-xl font-bold text-slate-900">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2 group">
+            <div className="relative w-12 h-12 rounded-sm overflow-hidden bg-white group-hover:scale-105 transition-transform">
+              <Image 
+                src="/logo.jpg" 
+                alt="AYMHC Logo" 
+                fill 
+                className="object-contain"
+              />
+            </div>
+            <span className="text-white font-serif font-bold text-xl tracking-wider hidden sm:block">
               AYMHC
-            </h2>
-
-            <p className="text-xs text-slate-500">
-              Aim Your Meaningful High Creation
-            </p>
-          </div>
-
-        </Link>
-
-        {/* Desktop */}
-
-        <nav className="hidden items-center gap-8 lg:flex">
-
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
-            >
-              {item.name}
-            </Link>
-          ))}
-
-          <Link
-            href="/contact"
-            className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-          >
-            Book Consultation
+            </span>
           </Link>
 
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden xl:flex items-center gap-6">
+            {links.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                className="text-sm font-medium text-slate-300 hover:text-[#D4AF37] transition-colors uppercase tracking-wide"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Mobile */}
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center">
+            <Link 
+              href="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#D4AF37] text-[#0B1528] text-sm font-bold tracking-wide rounded-sm transition-all hover:bg-white"
+            >
+              Book FREE Health Check
+              <ArrowRight size={16} />
+            </Link>
+          </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden"
-        >
-          {open ? <X size={28} /> : <Menu size={28} />}
-        </button>
-
+          {/* Mobile Menu Button */}
+          <div className="xl:hidden flex items-center gap-4">
+            <Link 
+              href="/contact"
+              className="hidden sm:inline-flex lg:hidden items-center px-4 py-2 bg-[#D4AF37] text-[#0B1528] text-xs font-bold tracking-wide rounded-sm"
+            >
+              Book Consultation
+            </Link>
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white hover:text-[#D4AF37] transition-colors p-1"
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </div>
       </div>
 
+      {/* Mobile Navigation */}
       <AnimatePresence>
-
-        {open && (
-
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="border-t bg-white lg:hidden"
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="xl:hidden bg-[#0B1528] border-t border-white/5 overflow-hidden"
           >
-
-            <div className="flex flex-col gap-5 p-6">
-
-              {navItems.map((item) => (
+            <div className="px-4 pt-2 pb-6 space-y-1">
+              {links.map((link) => (
                 <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="font-medium text-slate-700"
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-3 text-base font-medium text-slate-300 hover:text-[#D4AF37] hover:bg-white/5 rounded-sm transition-all"
                 >
-                  {item.name}
+                  {link.name}
                 </Link>
               ))}
-
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="rounded-lg bg-blue-600 py-3 text-center font-semibold text-white"
-              >
-                Book Consultation
-              </Link>
-
+              <div className="pt-4 px-3">
+                <Link 
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-[#D4AF37] text-[#0B1528] font-bold tracking-wide rounded-sm"
+                >
+                  Book FREE Health Check
+                </Link>
+              </div>
             </div>
-
           </motion.div>
-
         )}
-
       </AnimatePresence>
-
     </header>
   );
 }

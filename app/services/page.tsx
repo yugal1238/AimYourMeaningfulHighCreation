@@ -16,214 +16,141 @@ const services = [
     icon: TrendingUp,
     title: "Financial Planning",
     problem: "Not sure where your money is going?",
-    solution:
-      "We create a personalized financial roadmap to help you achieve your life goals with confidence.",
-    benefits: [
-      "Cash Flow Planning",
-      "Goal Based Investments",
-      "Retirement Strategy",
-      "Tax Efficient Planning",
-    ],
+    solution: "We create a personalized financial roadmap to help you achieve your life goals with confidence.",
+    benefits: ["Cash Flow Planning", "Goal Based Investments", "Retirement Strategy", "Tax Efficient Planning"],
   },
   {
     icon: PiggyBank,
     title: "Mutual Fund Advisory",
     problem: "Savings aren't growing fast enough?",
-    solution:
-      "We recommend suitable investment strategies based on your goals and risk profile.",
-    benefits: [
-      "SIP Planning",
-      "Lump Sum Investments",
-      "Portfolio Review",
-      "Long Term Wealth Creation",
-    ],
+    solution: "We recommend suitable investment strategies based on your goals and risk profile.",
+    benefits: ["SIP Planning", "Lump Sum Investments", "Portfolio Review", "Long Term Wealth Creation"],
   },
   {
     icon: Shield,
     title: "Life Insurance",
     problem: "Is your family financially protected?",
-    solution:
-      "Secure your loved ones with the right insurance strategy for every stage of life.",
-    benefits: [
-      "Term & Whole Life Plans",
-      "ULIPs & Endowment Plans",
-      "Family Income Protection",
-      "Keyman & Business Insurance",
-      "Group & Employer-Employee Insurance",
-      "Estate & Legacy Planning",
-    ],
+    solution: "Secure your loved ones with the right insurance strategy for every stage of life.",
+    benefits: ["Term & Whole Life Plans", "ULIPs & Endowment Plans", "Family Income Protection", "Keyman & Business Insurance", "Estate & Legacy Planning"],
   },
   {
     icon: HeartPulse,
     title: "Health Insurance",
     problem: "Medical emergencies can affect your finances.",
-    solution:
-      "Protect yourself and your family from rising healthcare costs.",
-    benefits: [
-      "Family Floater",
-      "Senior Citizen Plans",
-      "Critical Illness",
-      "Cashless Hospitalisation",
-    ],
+    solution: "Protect yourself and your family from rising healthcare costs.",
+    benefits: ["Family Floater", "Senior Citizen Plans", "Critical Illness", "Cashless Hospitalisation"],
   },
   {
     icon: GraduationCap,
     title: "Child Future Planning",
     problem: "Education costs continue to rise.",
-    solution:
-      "Plan systematically so your child's dreams are never compromised.",
-    benefits: [
-      "Education Fund",
-      "Marriage Planning",
-      "Long Term Investments",
-      "Goal Tracking",
-    ],
+    solution: "Plan systematically so your child's dreams are never compromised.",
+    benefits: ["Education Fund", "Marriage Planning", "Long Term Investments", "Goal Tracking"],
   },
   {
     icon: Landmark,
     title: "Retirement Planning",
     problem: "Will your savings last after retirement?",
-    solution:
-      "Build a retirement corpus that supports your desired lifestyle.",
-    benefits: [
-      "Retirement Income",
-      "Corpus Planning",
-      "Inflation Protection",
-      "Regular Review",
-    ],
+    solution: "Build a retirement corpus that supports your desired lifestyle.",
+    benefits: ["Retirement Income", "Corpus Planning", "Inflation Protection", "Regular Review"],
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <main className="bg-white">
-
+    <main className="bg-[#F8F9FA] min-h-screen">
+      
       {/* Hero */}
-
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 py-16 text-white sm:py-20 lg:py-24">
-
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-
-          <span className="rounded-full bg-blue-500/20 px-5 py-2 text-sm text-blue-200 sm:text-base">
+      <section className="bg-[#0B1528] pt-32 pb-20 lg:pt-40 lg:pb-28 text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B1528] via-[#D4AF37] to-[#0B1528]" />
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8 relative z-10">
+          <h2 className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-3">
             Our Services
-          </span>
-
-          <h1 className="mt-6 text-3xl font-extrabold leading-tight sm:mt-8 sm:text-4xl md:text-5xl lg:text-6xl">
-            Financial Solutions Designed Around Your Life
+          </h2>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light font-serif mb-6 leading-tight">
+            Solutions Designed Around Your Life
           </h1>
-
-          <p className="mx-auto mt-6 max-w-3xl text-base text-slate-300 sm:mt-8 sm:text-lg lg:text-xl">
-            At AYMHC, we don't sell products.
-            We build financial strategies that help families protect,
-            grow and preserve wealth for generations.
+          <p className="mx-auto max-w-3xl text-lg text-slate-300 font-light">
+            At AYMHC, we don't sell products. We build financial strategies that help families protect, grow, and preserve wealth for generations.
           </p>
-
         </div>
-
       </section>
 
-      {/* Services */}
-
-      <section className="py-16 sm:py-20 lg:py-24">
-
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:gap-8 sm:px-6 md:grid-cols-2 lg:gap-10 lg:px-8">
-
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-8 sm:hover:-translate-y-2"
-            >
-              <service.icon
-                className="rounded-2xl bg-blue-100 p-2.5 text-blue-700 sm:p-3"
-                size={48}
-              />
-
-              <h2 className="mt-5 text-2xl font-bold sm:mt-6 sm:text-3xl">
-                {service.title}
-              </h2>
-
-              <p className="mt-5 text-sm font-semibold text-red-500 sm:mt-6 sm:text-base">
-                Problem
-              </p>
-
-              <p className="mt-2 text-sm text-slate-600 sm:text-base">
-                {service.problem}
-              </p>
-
-              <p className="mt-5 text-sm font-semibold text-green-600 sm:mt-6 sm:text-base">
-                Solution
-              </p>
-
-              <p className="mt-2 text-sm text-slate-600 sm:text-base">
-                {service.solution}
-              </p>
-
-              <div className="mt-6 space-y-2.5 sm:mt-8 sm:space-y-3">
-
-                {service.benefits.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-2.5 sm:items-center sm:gap-3"
-                  >
-                    <CheckCircle2
-                      className="mt-0.5 shrink-0 text-green-600 sm:mt-0"
-                      size={18}
-                    />
-
-                    <span className="text-sm sm:text-base">{item}</span>
-                  </div>
-                ))}
-
-              </div>
-
-              <Link
-                href="/contact"
-                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 sm:mt-10 sm:text-base"
+      {/* Services Grid */}
+      <section className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={service.title}
+                className="group flex flex-col rounded-sm border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[#D4AF37]/30 relative overflow-hidden"
               >
-                Book Consultation
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="w-14 h-14 rounded-full bg-[#0B1528]/5 flex items-center justify-center mb-6 group-hover:bg-[#0B1528] transition-colors">
+                  <Icon className="text-[#0B1528] group-hover:text-[#D4AF37] transition-colors" size={28} />
+                </div>
 
-                <ArrowRight size={18} />
-              </Link>
+                <h2 className="text-2xl font-serif text-[#0B1528] mb-6">
+                  {service.title}
+                </h2>
 
-            </div>
-          ))}
+                <div className="mb-4">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Challenge</span>
+                  <p className="text-sm text-slate-600 font-light italic">"{service.problem}"</p>
+                </div>
 
+                <div className="mb-6 pl-4 border-l-2 border-[#D4AF37]">
+                  <span className="block text-xs font-bold text-[#0B1528] uppercase tracking-widest mb-1">Solution</span>
+                  <p className="text-sm text-slate-700 font-medium">{service.solution}</p>
+                </div>
+
+                <div className="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                  {service.benefits.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="shrink-0 text-[#D4AF37] mt-0.5" size={16} />
+                      <span className="text-sm text-slate-600 font-light">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href="/contact"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-bold tracking-wide text-[#0B1528] group-hover:text-[#D4AF37] transition-colors"
+                >
+                  Book Consultation
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            );
+          })}
         </div>
-
       </section>
 
       {/* CTA */}
-
-      <section className="bg-slate-900 py-16 text-white sm:py-20 lg:py-24">
-
-        <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-
-          <Briefcase
-            className="mx-auto text-blue-400"
-            size={44}
-          />
-
-          <h2 className="mt-6 text-3xl font-bold sm:mt-8 sm:text-4xl lg:text-5xl">
-            Every Great Financial Journey Starts With One Conversation
+      <section className="bg-[#0B1528] py-20 lg:py-24 text-white relative overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#D4AF37]/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="mx-auto max-w-4xl px-4 text-center relative z-10">
+          <Briefcase className="mx-auto text-[#D4AF37] mb-6" size={40} />
+          <h2 className="text-3xl md:text-5xl font-serif font-light mb-6">
+            Every Great Journey Starts With One Conversation
           </h2>
-
-          <p className="mt-6 text-base text-slate-300 sm:mt-8 sm:text-lg lg:text-xl">
-            Let's understand your goals and create a strategy that works
-            for your family—not just for today, but for the future.
+          <p className="text-lg text-slate-300 font-light mb-10 max-w-2xl mx-auto">
+            Let's understand your goals and create a strategy that works for your family—not just for today, but for the future.
           </p>
-
           <Link
             href="/contact"
-            className="mt-8 inline-flex rounded-full bg-blue-600 px-8 py-4 text-base font-semibold transition hover:bg-blue-700 sm:mt-10 sm:text-lg"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-[#D4AF37] text-[#0B1528] font-bold tracking-wide rounded-sm hover:bg-white hover:scale-105 transition-all"
           >
-            Schedule Your Consultation
+            Schedule Consultation
+            <ArrowRight size={20} />
           </Link>
-
         </div>
-
       </section>
 
     </main>
   );
 }
-  
